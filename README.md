@@ -14,8 +14,9 @@ toolbar. Login with the username and password as cloudera. When the homepage
 loads (which may take a while) make sure the YARN component is started in
 the left hand column.  
 
-After Confirming YARN is running, go back to the terminal and cd into this 
-repository (if you haven't cloned it yet, do). 
+After Confirming YARN is running, go back to the terminal and clone this 
+repository if you have git set up on the VM (or know how to quickly), 
+otherwise just copy and paste the code you need (only 3 files total). 
 
 Both examples work the map phase reading individual lines from the input
 text and outputing a Key Value pair for each word in the line, with the
