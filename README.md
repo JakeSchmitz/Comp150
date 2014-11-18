@@ -18,6 +18,10 @@ After Confirming YARN is running, go back to the terminal and clone this
 repository if you have git set up on the VM (or know how to quickly), 
 otherwise just copy and paste the code you need (only 3 files total). 
 
+Git is already installed in the VM so the setup work amounts to 
+generating a new public ssh key and registering it with git. Follow the 
+instructions here if you want to clone the repo: https://help.github.com/articles/generating-ssh-keys/
+
 Both examples work the map phase reading individual lines from the input
 text and outputing a Key Value pair for each word in the line, with the
 word as the key and 1 as the value. The reducer step then combines all
