@@ -82,16 +82,12 @@ Now run WordCount with this:
 REFERENCES
 ==========
 
-1.Cloudera Hadoop Tutorial
-     http://www.cloudera.com/content/cloudera/en/documentation/hadoop-tutorial/CDH5/Hadoop-Tutorial.html
+1.Cloudera Hadoop Tutorial: http://www.cloudera.com/content/cloudera/en/documentation/hadoop-tutorial/CDH5/Hadoop-Tutorial.html
 
-2. Michael Noll Python MapReduce Tutorial
-    http://www.michael-noll.com/tutorials/writing-an-hadoop-mapreduce-program-in-python/
+2. Michael Noll Python MapReduce Tutorial: http://www.michael-noll.com/tutorials/writing-an-hadoop-mapreduce-program-in-python/
 
-3. VirtualBox VM download/ documentation
-    https://www.virtualbox.org/wiki/Downloads
+3. VirtualBox VM download/ documentation: https://www.virtualbox.org/wiki/Downloads
 
-4. Cloudera Quickstart VM Download
-    http://www.cloudera.com/content/cloudera/en/downloads/quickstart_vms/cdh-5-2-x.html
+4. Cloudera Quickstart VM Download: http://www.cloudera.com/content/cloudera/en/downloads/quickstart_vms/cdh-5-2-x.html
 
 
