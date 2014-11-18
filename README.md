@@ -14,3 +14,64 @@ toolbar. Login with the username and password as cloudera. When the homepage
 loads (which may take a while) make sure the YARN component is started in
 the left hand column.  
 
+After Confirming YARN is running, go back to the terminal and cd into this 
+repository (if you haven't cloned it yet, do). 
+
+Both examples work the map phase reading individual lines from the input
+text and outputing a Key Value pair for each word in the line, with the
+word as the key and 1 as the value. The reducer step then combines all
+output from the map phase with the same key by summing the counts. The 
+reduce phase then outputs Key Value pairs with unique words for the keys
+and the total count of that word as the value.  
+
+To setup both, we need to create an input directory in HDFS to store the
+input files. Do this with the following command:
+    hadoop fs -mkdir /user/cloudera/input
+
+Then put the input files in the input directory in HDFS with:
+    hadoop fs -put mobydick.txt /user/cloudera/input/
+
+You can have as many files as you want in the input directory, all of which
+will be fed through WordCount. 
+
+Once the input is in HDFS, you should be able to run either example.
+
+PYTHON
+======
+To run the python version, first change into the python directory.
+
+The command is long, but here it is: 
+hadoop jar /usr/lib/hadoop-0.20-mapreduce/contrib/streaming/hadoop-streaming-2.5.0-mr1-cdh5.2.0.jar -input /user/cloudera/input -output /user/cloudera/output -mapper /home/cloudera/path/to/mapper.py -reducer /home/cloudera/path/to/reducer.py
+
+make sure you replace the /path/to/ parts with the paths on your local 
+machine to the python folder in the cloned repository based on where you 
+cloned from.
+
+That should work, and the output will be in HDFS in /user/cloudera/output/
+
+I find it easiest to write the results of all the files in the output
+directory to a local file using the following command: 
+    hadoop fs -cat /user/cloudera/output/* > results
+
+
+JAVA
+====
+To run the java version, first change into the java directory.
+
+Next, create a directory to write the compiled class files to.
+    mkdir wordcount_classes
+
+Then, compile Wordcount
+    javac -cp /usr/lib/hadoop/*:/usr/lib/hadoop/client/* WordCount.java -d wordcount_classes/
+
+Next, assemble the class files into a jar file with:
+    jar -cvf wordcount.jar -C WordCount_classes/ .
+
+After that you're ready to run the java version, but first make sure you've
+removed the results of any previous run with:
+    hadoop fs -rm -r /user/cloudera/output
+
+Now run WordCount with this:
+     hadoop jar wordcount.jar WordCount /user/cloudera/wordcount/input /user/cloudera/wordcount/output
+
+
